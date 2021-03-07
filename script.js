@@ -65,5 +65,5 @@ $(document).ready(function () {
     }
     watchTower();
 });
-
+// military time id and storage value 
 //tic tac toe exercise relevant remember to go back to that one #8 dom traversal for future referance
