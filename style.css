@@ -69,3 +69,14 @@ textarea{
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
+
+#currentDay {
+  font-size: 3em;
+  font-style: italic;
+}
+
+#time-display{
+  font-size: 2em;
+  font-style: italic;
+  font-weight: bold;
+}

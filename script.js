@@ -27,27 +27,22 @@ $(document).ready(function () {
         // Save text from textarea in local storage
         localStorage.setItem(time, text);
     })
-    /////you got to pull this back 
+    /////pull this back line 61
 
 
-    //////changing color
-    //if current hour is equal to the time hour then css needs to be current
-    //if current hour is not equal to current hour css should reflect past or present 
-    //
     function watchTower() {
-        var currentHour = moment().hour; //hour track
+        var currentHour = parseInt(moment().format("HH")); //hour track
         console.log(currentHour);
 
         $(".time-block").each(function () {
-            var blockHour = parseInt($(this).attr("id").split("hour")[1]);
-            console.log(blockHour, currentHour)
-
+            var blockHour = parseInt($(this).attr("id").split("hour")[1]);//find the time/check for claas change
+            console.log(blockHour, currentHour, $(this))
+            ///////////below determiness background colors/sets class 
             if (blockHour < currentHour) {
                 $(this).addClass("past");
                 $(this).removeClass("future");
                 $(this).removeClass("present");
-            }
-            if (blockHour === currentHour) {
+            } else if (blockHour === currentHour) {
                 $(this).addClass("present");
                 $(this).removeClass("future");
                 $(this).removeClass("past");
@@ -57,9 +52,18 @@ $(document).ready(function () {
                 $(this).removeClass("past");
                 $(this).removeClass("present");
             }
-        })
 
+            // recalls storage info for text area
+            console.log(parent)
+            $(this).val(storageInfo)
+            var parent = $(this).attr("id");
+            var storageInfo = localStorage.getItem(parent)
+            console.log(storageInfo)
+            $(this).children(".description").val(storageInfo)
+        })
 
     }
     watchTower();
-})
+});
+
+//tic tac toe exercise relevant remember to go back to that one #8 dom traversal for future referance
